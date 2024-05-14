@@ -1,16 +1,14 @@
 import cv2
 import face_recognition
-from webcam_cap import frame_capture 
 import shutil,tempfile,os
 
-cap = cv2.VideoCapture(r'assets\ev.mp4')
-folder = r'C:\Users\uygar\Desktop\Codding\dataset_preprocessing\assets'
+cap = cv2.VideoCapture(0)
+folder = r'\assets'             # Görüntülerin toplanacağı klasör
 i = 0
 count = 0
-name = 'uygar'
-# Sonsuz bir döngü içinde webcam görüntüsünü al ve ekranda göster
+name = ''                       # Görüntülerin kaydedileceği isim
+
 while True:
-    # Webcam'den bir kare al
     
     ret, frame = cap.read()
     if count % 15 ==0:
@@ -30,21 +28,15 @@ while True:
         else:
             pass
         
-        # print('yüz bulunamadı')
-    # Kare alınamadıysa döngüyü kır
     if not ret:
         break
-
-    # Alınan kareyi göster
     cv2.imshow('Webcam', frame)
 
-    # 'q' tuşuna basıldığında döngüyü kır
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
     count +=1
 
-# Döngüden çıktıktan sonra VideoCapture objesini serbest bırak
 cap.release()
 cv2.destroyAllWindows()
 
