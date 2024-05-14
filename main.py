@@ -3,11 +3,13 @@ import face_recognition
 import shutil,tempfile,os
 
 cap = cv2.VideoCapture(0)
-folder = r'\assets'             # Görüntülerin toplanacağı klasör
+# Görüntülerin toplanacağı klasörün pathini giriniz
+folder = r''                    
 os.makedirs(folder,exist_ok=True)
 i = 0
 count = 0
-name = ''                       # Görüntülerin kaydedileceği isim
+# Görüntülerin kaydedileceği ismi giriniz
+name = ''    
 
 while True:
     
